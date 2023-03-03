@@ -15,4 +15,6 @@ import javax.persistence.Table;
 @Entity
 @Table
 public class Ventes extends AbstractEntity{
+    // FIXME
+    private String code;
 }

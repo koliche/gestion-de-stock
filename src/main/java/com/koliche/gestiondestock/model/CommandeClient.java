@@ -4,8 +4,9 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.time.Instant;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -14,4 +15,13 @@ import javax.persistence.Table;
 @Entity
 @Table
 public class CommandeClient extends AbstractEntity {
+    @Column(name = "code")
+    private String code;
+    @Column(name = "dateCommande")
+    private Instant dateCommande;
+    @ManyToOne
+    @JoinColumn(name = "idClient")
+    private Client client;
+    @OneToMany(mappedBy = "commandeClient")
+    private List<LigneCommandClient> ligneCommandClients;
 }

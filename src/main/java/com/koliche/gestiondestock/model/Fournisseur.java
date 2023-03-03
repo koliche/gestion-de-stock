@@ -5,8 +5,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -15,4 +15,19 @@ import javax.persistence.Table;
 @Entity
 @Table
 public class Fournisseur extends AbstractEntity {
+    @Column(name = "nom")
+    private String nom;
+    @Column(name = "prenom")
+    private String prenom;
+    @Embedded
+    private Adresse adresse;
+
+    @Column(name = "photo")
+    private String photo;
+    @Column(name = "eamil")
+    private String email;
+    @Column(name = "numTel")
+    private String numTel;
+    @OneToMany(mappedBy = "fournisseurs")
+    private List<CommandeFournisseur> commandeFournisseurs;
 }

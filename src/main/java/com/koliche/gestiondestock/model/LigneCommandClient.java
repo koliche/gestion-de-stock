@@ -7,6 +7,8 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Data
@@ -16,4 +18,10 @@ import javax.persistence.Table;
 @Entity
 @Table
 public class LigneCommandClient extends AbstractEntity{
+    @ManyToOne
+    @JoinColumn(name = "idArticle")
+    private Article article;
+    @ManyToOne
+    @JoinColumn(name = "idCommandeClient")
+    private CommandeClient commandeClient;
 }
