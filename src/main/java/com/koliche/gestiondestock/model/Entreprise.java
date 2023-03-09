@@ -1,10 +1,7 @@
 package com.koliche.gestiondestock.model;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +10,7 @@ import javax.persistence.Table;
 import java.util.List;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
@@ -21,6 +19,16 @@ import java.util.List;
 public class Entreprise extends AbstractEntity{
     @Column(name = "nom")
     private String nom;
+    @Column(name = "description")
+    private String description;
+    @Column(name = "codeFiscal")
+    private String codeFiscal;
+    @Column(name = "photo")
+    private String photo;
+    @Column(name = "email")
+    private String email;
+    @Column(name = "numTel")
+    private String numTel;
 
     @OneToMany(mappedBy = "entreprise")
     private List<Utilisateur> utilisateurs;

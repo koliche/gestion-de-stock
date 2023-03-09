@@ -1,16 +1,13 @@
 package com.koliche.gestiondestock.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.math.BigDecimal;
+import java.time.Instant;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
@@ -18,6 +15,12 @@ import javax.persistence.Table;
 @Table
 public class MvtStk extends AbstractEntity{
     // MvtStk : Mouvment de stock
+    @Column(name = "dateMvt")
+    private Instant dateMvt;
+    @Column(name = "quantite")
+    private BigDecimal quantite;
+    @Column(name = "typeMvStk")
+    private TypeMvStk typeMvStk;
     @ManyToOne
     @JoinColumn(name = "idVentes")
     private Ventes ventes;

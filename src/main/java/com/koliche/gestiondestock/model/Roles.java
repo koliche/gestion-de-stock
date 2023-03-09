@@ -1,19 +1,22 @@
 package com.koliche.gestiondestock.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Table
 public class Roles extends AbstractEntity{
-    private String nom;
+    @Column(name = "roleName")
+    private String roleName;
+
+    @ManyToMany
+    @JoinColumn(name = "idUtilisateurs")
+    private List<Utilisateur> utilisateur;
 }
