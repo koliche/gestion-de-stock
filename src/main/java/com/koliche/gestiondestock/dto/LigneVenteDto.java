@@ -1,10 +1,8 @@
 package com.koliche.gestiondestock.dto;
 
-import com.koliche.gestiondestock.model.Ventes;
+import com.koliche.gestiondestock.model.LigneVente;
 import lombok.Builder;
 import lombok.Data;
-
-import javax.persistence.Column;
 import java.math.BigDecimal;
 
 @Data
@@ -14,4 +12,24 @@ public class LigneVenteDto {
     private VentesDto ventes;
 
     private BigDecimal quantite;
+
+    public LigneVenteDto fromEntity(LigneVente ligneVente){
+        if (ligneVente == null){
+            return null;
+            // TODO: throw an exception
+        }
+        return LigneVenteDto.builder()
+                .id(ligneVente.getId())
+                .build();
+    }
+    public LigneVente toEntity(LigneVenteDto ligneVenteDto){
+        if (ligneVenteDto == null){
+            return null;
+            // TODO: throw an exception
+        }
+        LigneVente ligneVente = new LigneVente();
+        ligneVente.setId(ligneVenteDto.getId());
+
+        return ligneVente;
+    }
 }

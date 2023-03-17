@@ -1,5 +1,6 @@
 package com.koliche.gestiondestock.dto;
 
+import com.koliche.gestiondestock.model.MvtStk;
 import com.koliche.gestiondestock.model.TypeMvStk;
 import com.koliche.gestiondestock.model.Ventes;
 import lombok.Builder;
@@ -18,4 +19,24 @@ public class MvtStkDto {
     private BigDecimal quantite;
     private TypeMvStk typeMvStk;
     private VentesDto ventes;
+
+    public MvtStkDto fromEntity(MvtStk mvtStk){
+        if (mvtStk == null){
+            return null;
+            // TODO: throw an exception
+        }
+        return MvtStkDto.builder()
+                .id(mvtStk.getId())
+                .build();
+    }
+    public MvtStk toEntity(MvtStkDto mvtStkDto){
+        if (mvtStkDto == null){
+            return null;
+            // TODO: throw an exception
+        }
+        MvtStk mvtStk = new MvtStk();
+        mvtStk.setId(mvtStkDto.getId());
+
+        return mvtStk;
+    }
 }
