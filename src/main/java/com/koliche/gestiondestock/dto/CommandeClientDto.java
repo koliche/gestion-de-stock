@@ -1,7 +1,7 @@
 package com.koliche.gestiondestock.dto;
 
-import com.koliche.gestiondestock.model.Fournisseur;
-import com.koliche.gestiondestock.model.LigneCommandFournisseur;
+import com.koliche.gestiondestock.model.Client;
+import com.koliche.gestiondestock.model.LigneCommandClient;
 import lombok.Builder;
 import lombok.Data;
 
@@ -13,10 +13,10 @@ import java.time.Instant;
 import java.util.List;
 @Data
 @Builder
-public class CommandeFournisseurDto {
+public class CommandeClientDto {
     private Integer id;
     private String code;
     private Instant dateCommande;
-    private FournisseurDto fournisseurs;
-    private List<LigneCommandFournisseurDto> ligneCommandFournisseurs;
+    private ClientDto client;
+    private List<LigneCommandClientDto> ligneCommandClients;
 }
