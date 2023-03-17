@@ -1,13 +1,9 @@
 package com.koliche.gestiondestock.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.koliche.gestiondestock.model.Article;
 import com.koliche.gestiondestock.model.Category;
 import lombok.Builder;
 import lombok.Data;
-
-import javax.persistence.Column;
-import javax.persistence.OneToMany;
 import java.util.List;
 @Data
 @Builder
@@ -36,10 +32,11 @@ public class CategoryDto {
             return null;
             // TODO: throw an exception
         }
-        return Category.builder()
-                .code(categoryDto.getCode())
-                .designation(categoryDto.getDesignation())
-                .build();
+        Category category = new Category();
+        category.setId(categoryDto.getId());
+        category.setCode(categoryDto.getCode());
+        category.setDesignation(categoryDto.getDesignation());
+        return category;
     }
 
 }

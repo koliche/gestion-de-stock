@@ -6,7 +6,6 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
@@ -22,4 +21,6 @@ public class Adresse {
     private String codePostal;
     @Column(name = "pays")
     private String pays;
+
+
 }
