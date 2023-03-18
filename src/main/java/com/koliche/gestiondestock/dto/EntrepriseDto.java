@@ -17,7 +17,7 @@ public class EntrepriseDto {
     private String numTel;
     private List<UtilisateurDto> utilisateurs;
 
-    public EntrepriseDto fromEntity(Entreprise entreprise){
+    public static EntrepriseDto fromEntity(Entreprise entreprise){
         if (entreprise == null){
             return null;
             // TODO: throw an exception

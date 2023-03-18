@@ -38,8 +38,10 @@ public class UtilisateurDto {
                 .nom(utilisateur.getNom())
                 .prenom(utilisateur.getPrenom())
                 .photo(utilisateur.getPhoto())
+                .adresse(AdresseDto.fromEntity(utilisateur.getAdresse()))
                 .email(utilisateur.getEmail())
                 .dateNaissance(utilisateur.getDateNaissance())
+                .entreprise(EntrepriseDto.fromEntity(utilisateur.getEntreprise()))
                 .build();
     }
     public Utilisateur toEntity(UtilisateurDto utilisateurDto){
